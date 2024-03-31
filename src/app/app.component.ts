@@ -11,4 +11,8 @@ import { HeaderComponent } from './header/header.component';
 })
 export class AppComponent {
   title = 'notaBene';
+
+  login() {
+    alert('Welcome!');
+  }
 }
