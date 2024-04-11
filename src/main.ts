@@ -4,10 +4,12 @@ import { AppComponent } from './app/app.component';
 import { provideRouter, Routes } from '@angular/router';
 import { AddNoteComponent } from './app/add-note/add-note.component';
 import { NotesListComponent } from './app/notes-list/notes-list.component';
+import { NotFoundComponent } from './app/not-found/not-found.component';
 
 const routes: Routes = [
-  { path: 'my-notes', component: NotesListComponent },
-  { path: 'add-note', component: AddNoteComponent },
+  { path: '', title: 'My Notes', component: NotesListComponent },
+  { path: 'add-note', title: 'New Note', component: AddNoteComponent },
+  { path: '**', title: 'Page Not Found', component: NotFoundComponent },
 ];
 
 bootstrapApplication(AppComponent, {
