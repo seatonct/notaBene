@@ -7,11 +7,12 @@
 </button>
 <label
   >Name:
-  <input
-    class="border-slate-800 border-solid rounded"
-    type="text"
-    [(ngModel)]="name"
-  />
+  <form (ngSubmit)="showName()" #myForm="ngForm">
+    <input type="text" [(ngModel)]="name" name="name" required />
+    <input type="submit" value="Submit" [disabled]="!myForm.form.valid" />
+  </form>
 </label>
+<p>{{ name }}</p>
+<app-add-note />
 <app-notes-list />
 <router-outlet />

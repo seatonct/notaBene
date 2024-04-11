@@ -1,0 +1,30 @@
+<div class="container">
+  <h2>New Note</h2>
+  <form [formGroup]="addNoteForm" (ngSubmit)="submitNote()">
+    <div>
+      <label for="note-title">
+        Title:
+        <input type="text" formControlName="noteTitle" id="note-title" />
+      </label>
+    </div>
+    <div>
+      <label for="note-text">
+        Text:
+        <input type="text" formControlName="noteText" id="note-text" />
+      </label>
+    </div>
+    <div>
+      <button
+        type="button"
+        class="button"
+        type="submit"
+        [disabled]="!addNoteForm.valid"
+      >
+        Add Note
+      </button>
+    </div>
+    <div>
+      <button type="button" (click)="addNoteForm.reset()">Reset</button>
+    </div>
+  </form>
+</div>
