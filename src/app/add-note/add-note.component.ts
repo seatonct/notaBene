@@ -41,7 +41,7 @@ export class AddNoteComponent {
       NOTES.unshift(newNote);
       this.addNoteForm.reset();
 
-      this.router.navigateByUrl('');
+      this.router.navigateByUrl('/');
     }
   }
 }

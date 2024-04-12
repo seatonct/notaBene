@@ -22,14 +22,12 @@ import { RouterModule } from '@angular/router';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'notaBene';
-  name = '';
-
-  showName() {
-    alert(this.name);
-  }
-
-  login() {
-    alert('Welcome!');
-  }
+  // title = 'notaBene';
+  // name = '';
+  // showName() {
+  //   alert(this.name);
+  // }
+  // login() {
+  //   alert('Welcome!');
+  // }
 }

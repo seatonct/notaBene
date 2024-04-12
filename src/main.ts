@@ -7,7 +7,7 @@ import { NotesListComponent } from './app/notes-list/notes-list.component';
 import { NotFoundComponent } from './app/not-found/not-found.component';
 
 const routes: Routes = [
-  { path: '', title: 'My Notes', component: NotesListComponent },
+  { path: '', component: NotesListComponent },
   { path: 'add-note', title: 'New Note', component: AddNoteComponent },
   { path: '**', title: 'Page Not Found', component: NotFoundComponent },
 ];
