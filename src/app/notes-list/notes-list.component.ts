@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NOTES } from '../notes';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-notes-list',
@@ -7,6 +8,18 @@ import { NOTES } from '../notes';
   templateUrl: './notes-list.component.html',
   styleUrl: './notes-list.component.css',
 })
-export class NotesListComponent {
-  notes = NOTES;
+export class NotesListComponent implements OnInit {
+  notes: any[] = [];
+
+  constructor(private dataService: DataService) {}
+
+  ngOnInit(): void {
+    this.getData();
+  }
+
+  getData(): void {
+    this.dataService.fetchData().subscribe((data) => {
+      this.notes = data;
+    });
+  }
 }
