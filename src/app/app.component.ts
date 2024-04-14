@@ -12,7 +12,6 @@ import { RouterModule } from '@angular/router';
   imports: [
     RouterOutlet,
     HeaderComponent,
-    NotesListComponent,
     AddNoteComponent,
     FormsModule,
     ReactiveFormsModule,
