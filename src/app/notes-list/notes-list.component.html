@@ -1,10 +1,13 @@
 <div>
   <h1 class="font-bold text-center text-3xl mt-4">My Notes</h1>
 </div>
-<div class="flex justify-center">
+<div *ngIf="notes" class="flex justify-center">
   <ul class="p-4">
-    @for (note of notes; track note.id) {
-    <div class="border border-gray-400 rounded-lg mb-4 py-4 px-2">
+    <!-- @for (note of notes; track note.id) { -->
+    <div
+      *ngFor="let note of notes"
+      class="border border-gray-400 rounded-lg mb-4 py-4 px-2"
+    >
       <li class="flex flex-col items-center">
         <span class="font-bold mb-1">{{ note.title }}</span>
         <span class="mx-2">{{ note.text }}</span>
@@ -14,6 +17,6 @@
         <i class="fa-solid fa-trash"></i>
       </div>
     </div>
-    }
+    <!-- } -->
   </ul>
 </div>
