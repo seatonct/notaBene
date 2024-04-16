@@ -3,7 +3,6 @@
 </div>
 <div *ngIf="notes" class="flex justify-center">
   <ul class="p-4">
-    <!-- @for (note of notes; track note.id) { -->
     <div
       *ngFor="let note of notes"
       class="border border-gray-400 rounded-lg mb-4 py-4 px-2"
@@ -17,6 +16,5 @@
         <i class="fa-solid fa-trash"></i>
       </div>
     </div>
-    <!-- } -->
   </ul>
 </div>

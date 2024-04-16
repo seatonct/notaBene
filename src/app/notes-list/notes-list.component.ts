@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { NOTES } from '../notes';
 import { NotesService } from '../notes.service';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-notes-list',
-  // standalone: true,
+  imports: [NgFor, NgIf],
+  standalone: true,
   templateUrl: './notes-list.component.html',
   styleUrl: './notes-list.component.css',
 })
