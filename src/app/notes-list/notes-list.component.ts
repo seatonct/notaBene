@@ -2,6 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { NOTES } from '../notes';
 import { NotesService } from '../notes.service';
 import { NgFor, NgIf } from '@angular/common';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import * as _ from 'lodash';
+
+interface Note {
+  title: string;
+  text: string;
+}
 
 @Component({
   selector: 'app-notes-list',
@@ -11,10 +19,12 @@ import { NgFor, NgIf } from '@angular/common';
   styleUrl: './notes-list.component.css',
 })
 export class NotesListComponent {
-  notes = NOTES;
+  // notes = NOTES;
+  notes$: Observable<Note[]>;
+
   // notes: any[] = [];
 
-  // constructor(private notesService: NotesService) {}
+  constructor(private http: HttpClient) {}
 
   // ngOnInit() {
   //   this.fetchNotes();
