@@ -1,30 +1,52 @@
-<div class="container">
-  <h2>New Note</h2>
-  <form [formGroup]="addNoteForm" (ngSubmit)="submitNote()">
-    <div>
+<div class="font-bold text-center text-3xl mt-4 mb-4">
+  <h1>New Note</h1>
+</div>
+<div class="flex flex-col items-center">
+  <form
+    class="w-3/4 border border-gray-400 rounded-lg mb-4 py-4 px-2"
+    [formGroup]="addNoteForm"
+    (ngSubmit)="submitNote()"
+  >
+    <div class="mb-4">
       <label for="note-title">
         Title:
-        <input type="text" formControlName="noteTitle" id="note-title" />
+        <input
+          class="block w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500"
+          type="text"
+          formControlName="noteTitle"
+          id="note-title"
+        />
       </label>
     </div>
-    <div>
+    <div class="mb-4">
       <label for="note-text">
         Text:
-        <input type="text" formControlName="noteText" id="note-text" />
+        <textarea
+          class="block w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500"
+          type="text"
+          formControlName="noteText"
+          id="note-text"
+        ></textarea>
       </label>
     </div>
-    <div>
+    <div class="mb-6">
       <button
         type="button"
-        class="button"
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         type="submit"
         [disabled]="!addNoteForm.valid"
       >
         Add Note
       </button>
     </div>
-    <div>
-      <button type="button" (click)="addNoteForm.reset()">Reset</button>
+    <div class="mb-6">
+      <button
+        class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        type="button"
+        (click)="addNoteForm.reset()"
+      >
+        Reset
+      </button>
     </div>
   </form>
 </div>

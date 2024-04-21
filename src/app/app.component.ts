@@ -5,6 +5,8 @@ import { NotesListComponent } from './notes-list/notes-list.component';
 import { AddNoteComponent } from './add-note/add-note.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -12,24 +14,17 @@ import { RouterModule } from '@angular/router';
   imports: [
     RouterOutlet,
     HeaderComponent,
-    NotesListComponent,
     AddNoteComponent,
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
+    NotesListComponent,
+    NotFoundComponent,
+    HttpClientModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'notaBene';
-  name = '';
-
-  showName() {
-    alert(this.name);
-  }
-
-  login() {
-    alert('Welcome!');
-  }
 }

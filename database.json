@@ -1,0 +1,14 @@
+{
+  "notes": [
+    {
+      "id": 1,
+      "title": "Shakespeare",
+      "text": "To be or not to be: that is the question."
+    },
+    {
+      "id": 2,
+      "title": "Aeneid First Lines",
+      "text": "Arma virumque cano qui primus ab oris Italiam fato profugus Lavinaque venit."
+    }
+  ]
+}

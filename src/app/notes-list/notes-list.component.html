@@ -1,10 +1,20 @@
-<div class="w-4/5 flex justify-center h-screen">
-  <ul class="flex flex-col items-center">
-    @for (note of notes; track note.id) {
-    <li class="flex flex-col items-center">
-      <span class="note-title">{{ note.title }}</span>
-      <span class="note-text">{{ note.text }}</span>
-    </li>
-    }
+<div>
+  <h1 class="font-bold text-center text-3xl mt-4">My Notes</h1>
+</div>
+<div *ngIf="notes" class="flex justify-center">
+  <ul class="p-4">
+    <div
+      *ngFor="let note of notes"
+      class="border border-gray-400 rounded-lg mb-4 py-4 px-2"
+    >
+      <li class="flex flex-col items-center">
+        <span class="font-bold mb-1">{{ note.title }}</span>
+        <span class="mx-2">{{ note.text }}</span>
+      </li>
+      <div class="mx-2 mt-2 flex justify-between">
+        <i class="fa-solid fa-pen-ruler"></i>
+        <i class="fa-solid fa-trash"></i>
+      </div>
+    </div>
   </ul>
 </div>
