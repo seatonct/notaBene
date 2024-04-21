@@ -27,11 +27,4 @@ import { HttpClientModule } from '@angular/common/http';
 })
 export class AppComponent {
   title = 'notaBene';
-  // name = '';
-  // showName() {
-  //   alert(this.name);
-  // }
-  // login() {
-  //   alert('Welcome!');
-  // }
 }

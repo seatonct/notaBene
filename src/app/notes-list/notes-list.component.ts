@@ -19,25 +19,5 @@ interface Note {
   styleUrl: './notes-list.component.css',
 })
 export class NotesListComponent {
-  // notes = NOTES;
-  notes$: Observable<Note[]>;
-
-  // notes: any[] = [];
-
-  constructor(private http: HttpClient) {}
-
-  // ngOnInit() {
-  //   this.fetchNotes();
-  // }
-
-  // fetchNotes() {
-  //   this.notesService.fetchNotes().subscribe(
-  //     (response: any[]) => {
-  //       this.notes = response;
-  //     },
-  //     (error: any) => {
-  //       console.error('Error fetching notes:', error);
-  //     }
-  //   );
-  // }
+  notes = NOTES;
 }
