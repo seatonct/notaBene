@@ -18,6 +18,13 @@ interface Note {
   templateUrl: './notes-list.component.html',
   styleUrl: './notes-list.component.css',
 })
-export class NotesListComponent {
-  notes = NOTES;
+export class NotesListComponent implements OnInit {
+  // notes = NOTES;
+  constructor(private notesService: NotesService) {}
+
+  notes!: Observable<{ id: number; title: string; text: string }>[];
+
+  ngOnInit(): void {
+    this.notes = this.notesService.fetchNotes();
+  }
 }
