@@ -32,7 +32,6 @@ export class NotesListComponent {
     this.notesService.fetchNotes().subscribe({
       next: (notes) => {
         this.notes = notes;
-        console.log(this.notes);
       },
       error: (error) => {
         this.errorMessage = error;
