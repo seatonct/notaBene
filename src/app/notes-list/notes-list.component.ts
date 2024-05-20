@@ -3,7 +3,6 @@ import { NOTES } from '../notes';
 import { NotesService } from '../notes.service';
 import { NgFor, NgIf } from '@angular/common';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
 import * as _ from 'lodash';
 
 interface Note {
