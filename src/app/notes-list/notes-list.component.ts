@@ -17,13 +17,10 @@ interface Note {
   templateUrl: './notes-list.component.html',
   styleUrl: './notes-list.component.css',
 })
-export class NotesListComponent implements OnInit {
+export class NotesListComponent {
   // notes = NOTES;
-  constructor(private notesService: NotesService) {}
-
-  notes!: Observable<{ id: number; title: string; text: string }>[];
-
-  ngOnInit(): void {
+  notes: any;
+  constructor(private notesService: NotesService) {
     this.notes = this.notesService.fetchNotes();
   }
 }

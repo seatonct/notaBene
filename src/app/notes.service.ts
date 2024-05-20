@@ -6,14 +6,14 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class NotesService {
-  constructor(private http: HttpClient) {}
+  constructor(private httpClient: HttpClient) {}
 
   // private notesUrl = 'http://localhost:8088/notes';
 
   fetchNotes() /*: Observable<any[]>*/ {
     // return this.http.get<any[]>(this.notesUrl);
-    return this.http.get<{ id: number; title: string; text: string }[]>(
-      'http://localhost:8088/notes'
-    );
+    this.httpClient.get('http://localhost:8088/notes').subscribe((data) => {
+      return data;
+    });
   }
 }
