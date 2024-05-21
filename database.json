@@ -9,6 +9,16 @@
       "id": 2,
       "title": "Aeneid First Lines",
       "text": "Arma virumque cano qui primus ab oris Italiam fato profugus Lavinaque venit."
+    },
+    {
+      "title": "New Note",
+      "text": "This is my new note.",
+      "id": 3
+    },
+    {
+      "title": "",
+      "text": "This is a note without a title.",
+      "id": 4
     }
   ]
 }
