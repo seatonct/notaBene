@@ -25,6 +25,10 @@ export class NotesService {
     return this.http.get<Note[]>(this.apiUrl);
   }
 
+  getNoteById(id: number): Observable<Note> {
+    return this.http.get<Note>(`${this.apiUrl}/${id}`);
+  }
+
   addNote(newNote: NewNote): Observable<NewNote> {
     return this.http.post<NewNote>(this.apiUrl, newNote);
   }
@@ -32,5 +36,9 @@ export class NotesService {
   deleteNote(id: number): Observable<unknown> {
     const url = `${this.apiUrl}/${id}`;
     return this.http.delete(url);
+  }
+
+  updateNote(note: Note): Observable<Note> {
+    return this.http.put<Note>(`${this.apiUrl}/${note.id}`, note);
   }
 }
