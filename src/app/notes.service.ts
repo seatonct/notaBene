@@ -33,4 +33,8 @@ export class NotesService {
     const url = `${this.apiUrl}/${id}`;
     return this.http.delete(url);
   }
+
+  updateNote(note: Note): Observable<Note> {
+    return this.http.put<Note>(`${this.apiUrl}/${note.id}`, note);
+  }
 }
