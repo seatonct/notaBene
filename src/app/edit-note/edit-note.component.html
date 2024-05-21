@@ -1,0 +1,48 @@
+<div class="font-bold text-center text-3xl mt-4 mb-4">
+  <h1>Edit Note</h1>
+</div>
+<div class="flex flex-col items-center">
+  <form
+    class="w-3/4 border border-gray-400 rounded-lg mb-4 py-4 px-2"
+    [formGroup]="editNoteForm"
+    (ngSubmit)="submitNote()"
+  >
+    <div class="mb-4">
+      <label for="note-title">
+        Title: <input class="block w-full px-4 py-2 rounded-md border
+        border-gray-300 focus:outline-none focus:border-blue-500" type="text"
+        formControlName="noteTitle" id="note-title" [value]= />
+      </label>
+    </div>
+    <div class="mb-4">
+      <label for="note-text">
+        Text:
+        <textarea
+          class="block w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500"
+          type="text"
+          formControlName="noteText"
+          id="note-text"
+        ></textarea>
+      </label>
+    </div>
+    <div class="mb-6">
+      <button
+        type="button"
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        type="submit"
+        [disabled]="!editNoteForm.valid"
+      >
+        Update Note
+      </button>
+    </div>
+    <div class="mb-6">
+      <button
+        class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        type="button"
+        (click)="router.navigateByUrl('/')"
+      >
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>

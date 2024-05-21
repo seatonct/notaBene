@@ -1,6 +1,12 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { NotesService } from '../notes.service';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, RouterModule } from '@angular/router';
+import {
+  ReactiveFormsModule,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 
 interface Note {
   id: number;
@@ -11,26 +17,51 @@ interface Note {
 @Component({
   selector: 'app-edit-note',
   standalone: true,
-  imports: [],
-  template: ` <p>edit-note works!</p> `,
+  imports: [RouterModule, ReactiveFormsModule],
+  templateUrl: `./edit-note.component.html`,
   styleUrl: './edit-note.component.css',
 })
-export class EditNoteComponent {
+export class EditNoteComponent implements OnInit {
   activateRoute = inject(ActivatedRoute);
   id = Number(this.activateRoute.snapshot.paramMap.get('id'));
   errorMessage!: string;
 
-  constructor(private notesService: NotesService) {}
-  note = this.notesService.getNoteById(this.id).subscribe();
+  // router = inject(Router);
 
-  // ngOnInit() {
-  //   this.notesService.getNoteById(id).subscribe({
-  //     next: (note) => {
-  //       this.note = note;
-  //     },
-  //     error: (error) => {
-  //       this.errorMessage = error;
-  //     },
-  //   });
-  // }
+  editNoteForm = new FormGroup({
+    noteTitle: new FormControl(''),
+    noteText: new FormControl('', Validators.required),
+  });
+
+  constructor(private notesService: NotesService, private router: Router) {}
+
+  // note = this.notesService.getNoteById(this.id).subscribe();
+  ngOnInit(): void {
+    this.notesService.getNoteById(this.id).subscribe({
+      next: (note) => {
+        this.editNoteForm.setValue({
+          noteTitle: note.title,
+          noteText: note.text,
+        });
+      },
+    });
+  }
+
+  submitNote() {
+    let title = this.editNoteForm.value.noteTitle ?? '';
+    let text = this.editNoteForm.value.noteText ?? '';
+
+    if (this.editNoteForm.valid) {
+      let updatedNote = {
+        title: title,
+        text: text,
+        id: this.id,
+      };
+
+      this.notesService.updateNote(updatedNote).subscribe();
+      // this.addNoteForm.reset();
+
+      this.router.navigateByUrl('/');
+    }
+  }
 }

@@ -6,14 +6,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { NOTES } from '../notes';
 import { NotesService } from '../notes.service';
 import { HttpClientModule } from '@angular/common/http';
-
-interface NewNote {
-  title: string;
-  text: string;
-}
 
 @Component({
   selector: 'app-add-note',
