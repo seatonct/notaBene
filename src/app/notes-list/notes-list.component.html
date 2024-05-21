@@ -7,7 +7,7 @@
       *ngFor="let note of notes"
       class="border border-gray-400 rounded-lg mb-4 py-4 px-2"
     >
-      <li class="flex flex-col items-center">
+      <li id="{{ note.id }}" class="flex flex-col items-center">
         <span class="font-bold mb-1">{{ note.title }}</span>
         <span class="mx-2">{{ note.text }}</span>
       </li>

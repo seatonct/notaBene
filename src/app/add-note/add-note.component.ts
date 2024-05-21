@@ -7,13 +7,21 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NOTES } from '../notes';
+import { NotesService } from '../notes.service';
+import { HttpClientModule } from '@angular/common/http';
+
+interface NewNote {
+  title: string;
+  text: string;
+}
 
 @Component({
   selector: 'app-add-note',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, HttpClientModule],
   templateUrl: `./add-note.component.html`,
   styleUrl: './add-note.component.css',
+  providers: [NotesService],
 })
 export class AddNoteComponent {
   router = inject(Router);
@@ -23,22 +31,19 @@ export class AddNoteComponent {
     noteText: new FormControl('', Validators.required),
   });
 
+  constructor(private notesService: NotesService) {}
+
   submitNote() {
     let title = this.addNoteForm.value.noteTitle ?? '';
     let text = this.addNoteForm.value.noteText ?? '';
 
     if (this.addNoteForm.valid) {
-      let ids = NOTES.map((a) => a.id);
-      let maxId = 0;
-      if (ids.length > 0) {
-        maxId = Math.max(...ids);
-      }
       let newNote = {
-        id: maxId + 1,
         title: title,
         text: text,
       };
-      NOTES.unshift(newNote);
+
+      this.notesService.addNote(newNote).subscribe();
       this.addNoteForm.reset();
 
       this.router.navigateByUrl('/');

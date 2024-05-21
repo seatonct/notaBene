@@ -1,9 +1,14 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, catchError } from 'rxjs';
 
 interface Note {
   id: number;
+  title: string;
+  text: string;
+}
+
+interface NewNote {
   title: string;
   text: string;
 }
@@ -18,8 +23,9 @@ export class NotesService {
 
   fetchNotes(): Observable<Note[]> {
     return this.http.get<Note[]>(this.apiUrl);
-    // this.http.get('http://localhost:8088/notes').subscribe((data) => {
-    //   return data;
-    // });
+  }
+
+  addNote(newNote: NewNote): Observable<NewNote> {
+    return this.http.post<NewNote>(this.apiUrl, newNote);
   }
 }
