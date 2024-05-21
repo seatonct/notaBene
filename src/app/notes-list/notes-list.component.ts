@@ -1,11 +1,8 @@
-import { Component, inject } from '@angular/core';
-import { NOTES } from '../notes';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Component } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { NotesService } from '../notes.service';
 import { NgFor, NgIf } from '@angular/common';
 import { CommonModule } from '@angular/common';
-import { Observable } from 'rxjs';
-import * as _ from 'lodash';
 
 interface Note {
   id: number;

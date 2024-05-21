@@ -25,6 +25,10 @@ export class NotesService {
     return this.http.get<Note[]>(this.apiUrl);
   }
 
+  getNoteById(id: number): Observable<Note> {
+    return this.http.get<Note>(`${this.apiUrl}/${id}`);
+  }
+
   addNote(newNote: NewNote): Observable<NewNote> {
     return this.http.post<NewNote>(this.apiUrl, newNote);
   }
