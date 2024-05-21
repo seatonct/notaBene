@@ -7,6 +7,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 interface Note {
   id: number;
@@ -17,7 +18,7 @@ interface Note {
 @Component({
   selector: 'app-edit-note',
   standalone: true,
-  imports: [RouterModule, ReactiveFormsModule],
+  imports: [RouterModule, ReactiveFormsModule, CommonModule],
   templateUrl: `./edit-note.component.html`,
   styleUrl: './edit-note.component.css',
 })
@@ -26,7 +27,7 @@ export class EditNoteComponent implements OnInit {
   id = Number(this.activateRoute.snapshot.paramMap.get('id'));
   errorMessage!: string;
 
-  // router = inject(Router);
+  cancelRouter = inject(Router);
 
   editNoteForm = new FormGroup({
     noteTitle: new FormControl(''),

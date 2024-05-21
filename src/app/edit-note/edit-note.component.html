@@ -9,9 +9,13 @@
   >
     <div class="mb-4">
       <label for="note-title">
-        Title: <input class="block w-full px-4 py-2 rounded-md border
-        border-gray-300 focus:outline-none focus:border-blue-500" type="text"
-        formControlName="noteTitle" id="note-title" [value]= />
+        Title:
+        <input
+          class="block w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500"
+          type="text"
+          formControlName="noteTitle"
+          id="note-title"
+        />
       </label>
     </div>
     <div class="mb-4">
@@ -39,7 +43,7 @@
       <button
         class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         type="button"
-        (click)="router.navigateByUrl('/')"
+        (click)="cancelRouter.navigateByUrl('/')"
       >
         Cancel
       </button>
