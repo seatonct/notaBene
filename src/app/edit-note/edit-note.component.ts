@@ -7,18 +7,11 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-
-interface Note {
-  id: number;
-  title: string;
-  text: string;
-}
 
 @Component({
   selector: 'app-edit-note',
   standalone: true,
-  imports: [RouterModule, ReactiveFormsModule, CommonModule],
+  imports: [RouterModule, ReactiveFormsModule],
   templateUrl: `./edit-note.component.html`,
   styleUrl: './edit-note.component.css',
 })
@@ -36,7 +29,6 @@ export class EditNoteComponent implements OnInit {
 
   constructor(private notesService: NotesService, private router: Router) {}
 
-  // note = this.notesService.getNoteById(this.id).subscribe();
   ngOnInit(): void {
     this.notesService.getNoteById(this.id).subscribe({
       next: (note) => {
@@ -60,7 +52,6 @@ export class EditNoteComponent implements OnInit {
       };
 
       this.notesService.updateNote(updatedNote).subscribe();
-      // this.addNoteForm.reset();
 
       this.router.navigateByUrl('/');
     }

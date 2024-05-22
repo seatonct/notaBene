@@ -1,26 +1,36 @@
 # NotaBene
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.2.
+NotaBene is a simple note taking app that allows a user to create, read, update, and delete short notes with optional titles.
+I used Angular/TypeScript with Tailwind CSS to build this frontend project with JSON server to simulate backend functionality.
+N.B., ;) This project is a work in progress. Next steps include, styling and adding users to the data schema along with authorization and validation to the app's logic.
 
-## Development server
+## To Test
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Setup
 
-## Code scaffolding
+1. Clone this repository on your local machine.
+2. Navigate to the main project directory in your terminal.
+3. Run `json-server database.json -p 8088 -w`.
+4. Open a new terminal window and navigate to the main project directory.
+5. In the new terminal window, run `ng serve --open`.
+6. A tab should open in your browser and navigate to `http://localhost:4200/`, the app home page. The previously-created notes should be displayed on the screen. This screen can be accessed at any time by clicking `My Notes` in the NavBar.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Add a Note
 
-## Build
+7. To create a new note, click `New Note` in the NavBar. The browser will navigate to a form for adding a new note.
+8. Enter the text of the new note and (optionally) a title. A note can be added without a title, but the `Submit` button will not work unless a note's text is entered in the designated box.
+9. To reset the form, click the `Reset` button.
+10. Click `Submit` to add the new note. The browser will navigate back to the Home/My Notes page.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Edit a Note
 
-## Running unit tests
+11. Click the pencil-and-ruler icon for a note to edit the note. The browser will navigate to the form for editing the note, with the current title (if present) and text of the note populated in the form.
+12. Change the title and/or text of the note and then click `Update Note` to save your changes, but remember that the note must have a text in order for the button to work.
+13. If you decide not to edit the note, you can click the `Cancel` button to navigate back to the Home/My Notes page.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Delete a Note
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+14. To delete a note, click the trash-can icon for the note. The note will be deleted and will disappear from the screen.
 
 ## Further help
 

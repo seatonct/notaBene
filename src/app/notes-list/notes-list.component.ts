@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
 import { NotesService } from '../notes.service';
 import { NgFor, NgIf } from '@angular/common';
-import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 interface Note {
@@ -13,7 +11,7 @@ interface Note {
 
 @Component({
   selector: 'app-notes-list',
-  imports: [NgFor, NgIf, HttpClientModule, CommonModule, RouterModule],
+  imports: [NgFor, NgIf, RouterModule],
   standalone: true,
   templateUrl: './notes-list.component.html',
   styleUrl: './notes-list.component.css',
