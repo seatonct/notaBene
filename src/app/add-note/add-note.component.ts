@@ -7,12 +7,11 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NotesService } from '../notes.service';
-import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-add-note',
   standalone: true,
-  imports: [ReactiveFormsModule, HttpClientModule],
+  imports: [ReactiveFormsModule],
   templateUrl: `./add-note.component.html`,
   styleUrl: './add-note.component.css',
   providers: [NotesService],
