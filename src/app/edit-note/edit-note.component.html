@@ -3,7 +3,7 @@
 </div>
 <div class="flex flex-col items-center">
   <form
-    class="w-3/4 border border-gray-400 rounded-lg mb-4 py-4 px-2"
+    class="w-3/4 border bg-zinc-200 border-gray-400 rounded-lg mb-4 p-6"
     [formGroup]="editNoteForm"
     (ngSubmit)="submitNote()"
   >
@@ -11,7 +11,7 @@
       <label for="note-title">
         Title:
         <input
-          class="block w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500"
+          class="bg-amber-100 block w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500"
           type="text"
           formControlName="noteTitle"
           id="note-title"
@@ -22,7 +22,7 @@
       <label for="note-text">
         Text:
         <textarea
-          class="block w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500"
+          class="bg-amber-100 block w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500"
           type="text"
           formControlName="noteText"
           id="note-text"
