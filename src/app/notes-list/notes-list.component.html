@@ -12,11 +12,26 @@
         <span class="mx-2">{{ note.text }}</span>
       </li>
       <div class="mx-2 mt-2 flex justify-between">
-        <i
-          [routerLink]="['/edit-note', note.id]"
-          class="fa-solid fa-pen-ruler"
-        ></i>
-        <i (click)="deleteItem(note.id)" class="fa-solid fa-trash"></i>
+        <div class="relative group">
+          <i
+            [routerLink]="['/edit-note', note.id]"
+            class="fa-solid fa-pen-ruler relative"
+          ></i>
+          <span
+            class="tooltip group-hover:opacity-100 group-hover:translate-y-0"
+            >Edit</span
+          >
+        </div>
+        <div class="relative group">
+          <i
+            (click)="deleteItem(note.id)"
+            class="fa-solid fa-trash relative"
+          ></i>
+          <span
+            class="tooltip group-hover:opacity-100 group-hover:translate-y-0"
+            >Delete</span
+          >
+        </div>
       </div>
     </div>
   </ul>

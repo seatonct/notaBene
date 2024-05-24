@@ -12,3 +12,14 @@
 .title {
   text-shadow: 2px 2px 4px rgba(8, 7, 7, 0.5);
 }
+
+.tooltip {
+  @apply absolute bg-gray-700 text-white text-xs rounded py-1 px-2 opacity-0 transform -translate-y-2 transition-opacity duration-300;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 150%; /* Adjust based on your icon size and positioning */
+}
+
+.group:hover .tooltip {
+  @apply opacity-100 translate-y-0;
+}
