@@ -1,5 +1,5 @@
 <div>
-  <h1 class="font-bold text-center text-3xl mt-4">My Notes</h1>
+  <h1 class="font-bold text-center text-3xl mt-4 title">My Notes</h1>
 </div>
 <div *ngIf="notes" class="flex justify-center">
   <ul class="p-4">
@@ -12,12 +12,49 @@
         <span class="mx-2">{{ note.text }}</span>
       </li>
       <div class="mx-2 mt-2 flex justify-between">
-        <i
-          [routerLink]="['/edit-note', note.id]"
-          class="fa-solid fa-pen-ruler"
-        ></i>
-        <i (click)="deleteItem(note.id)" class="fa-solid fa-trash"></i>
+        <div class="relative group">
+          <i
+            [routerLink]="['/edit-note', note.id]"
+            class="fa-solid fa-pen-ruler relative"
+          ></i>
+          <span
+            class="tooltip group-hover:opacity-100 group-hover:translate-y-0"
+            >Edit</span
+          >
+        </div>
+        <div class="relative group">
+          <i
+            (click)="openModal(note.id)"
+            class="fa-solid fa-trash relative"
+          ></i>
+          <span
+            class="tooltip group-hover:opacity-100 group-hover:translate-y-0"
+            >Delete</span
+          >
+        </div>
       </div>
     </div>
   </ul>
+</div>
+
+<div
+  class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"
+  *ngIf="isModalOpen"
+>
+  <div class="bg-white p-6 rounded shadow-lg max-w-md w-full relative">
+    <button
+      class="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+      (click)="closeModal()"
+    >
+      &times;
+    </button>
+    <h2 class="text-xl font-semibold mb-4">Confirm Delete</h2>
+    <p class="mb-4">Are you sure you want to delete this note?</p>
+    <button
+      class="bg-blue-500 text-white px-4 py-2 rounded"
+      (click)="confirmDelete(deleteId)"
+    >
+      Delete
+    </button>
+  </div>
 </div>

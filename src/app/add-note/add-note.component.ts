@@ -7,11 +7,12 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NotesService } from '../notes.service';
+import { NgIf, CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-add-note',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, NgIf, CommonModule],
   templateUrl: `./add-note.component.html`,
   styleUrl: './add-note.component.css',
   providers: [NotesService],
@@ -23,6 +24,21 @@ export class AddNoteComponent {
     noteTitle: new FormControl(''),
     noteText: new FormControl('', Validators.required),
   });
+
+  isModalOpen = false;
+
+  openModal() {
+    this.isModalOpen = true;
+  }
+
+  closeModal() {
+    this.isModalOpen = false;
+  }
+
+  confirmReset() {
+    this.addNoteForm.reset();
+    this.closeModal();
+  }
 
   constructor(private notesService: NotesService) {}
 
