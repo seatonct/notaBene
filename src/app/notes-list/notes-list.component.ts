@@ -20,6 +20,7 @@ export class NotesListComponent {
   title = 'ng-client';
   notes: Note[] = [];
   errorMessage!: string;
+  deleteId: number = 0;
 
   constructor(private notesService: NotesService) {}
 
@@ -34,6 +35,17 @@ export class NotesListComponent {
     });
   }
 
+  isModalOpen = false;
+
+  openModal(id: number) {
+    this.deleteId = id;
+    this.isModalOpen = true;
+  }
+
+  closeModal() {
+    this.isModalOpen = false;
+  }
+
   deleteItem(id: number): void {
     this.notesService.deleteNote(id).subscribe({
       next: () => {
@@ -43,5 +55,10 @@ export class NotesListComponent {
         this.errorMessage = error;
       },
     });
+  }
+
+  confirmDelete(id: number): void {
+    this.deleteItem(id);
+    this.closeModal();
   }
 }
