@@ -7,11 +7,12 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { NgIf, CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-edit-note',
   standalone: true,
-  imports: [RouterModule, ReactiveFormsModule],
+  imports: [RouterModule, ReactiveFormsModule, NgIf, CommonModule],
   templateUrl: `./edit-note.component.html`,
   styleUrl: './edit-note.component.css',
 })
@@ -38,6 +39,21 @@ export class EditNoteComponent implements OnInit {
         });
       },
     });
+  }
+
+  isModalOpen = false;
+
+  openModal() {
+    this.isModalOpen = true;
+  }
+
+  closeModal() {
+    this.isModalOpen = false;
+  }
+
+  confirmCancel() {
+    this.closeModal();
+    this.router.navigateByUrl('/');
   }
 
   submitNote() {
