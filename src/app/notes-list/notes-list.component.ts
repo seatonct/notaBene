@@ -27,7 +27,10 @@ export class NotesListComponent {
   ngOnInit() {
     this.notesService.fetchNotes().subscribe({
       next: (notes) => {
-        this.notes = notes.reverse();
+        console.log('Fetched notes:', notes);
+        notes.reverse();
+        this.notes = notes;
+        console.log('Reversed notes:', this.notes);
       },
       error: (error) => {
         this.errorMessage = error;
