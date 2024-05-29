@@ -1,3 +1,13 @@
 .title {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
+
+.writing-font {
+  font-family: "Caveat", cursive;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.writing-size {
+  font-size: 1.5rem;
+}

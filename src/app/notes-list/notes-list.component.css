@@ -23,3 +23,13 @@
 .group:hover .tooltip {
   @apply opacity-100 translate-y-0;
 }
+
+.writing-font {
+  font-family: "Caveat", cursive;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.writing-size {
+  font-size: 1.5rem;
+}
