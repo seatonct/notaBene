@@ -2,10 +2,11 @@
 
 NotaBene is a simple note taking app that allows a user to create, read, update, and delete short notes with optional titles.
 I used Angular/TypeScript with Tailwind CSS to build this frontend project with JSON server to simulate backend functionality.
-N.B., ;) This project is a work in progress. Next steps include, styling and adding users to the data schema along with authorization and validation to the app's logic.
+N.B., ;) This project is a work in progress. Next steps include more styling and adding users to the data schema along with authorization and validation to the app's logic.
 
 ## View Demo
-To view a video demo of the application, click the following link: https://drive.google.com/file/d/1zGi-SMVKC2grP0LFv8MOtthTkZdTN2kX/view?usp=sharing.
+
+To view a video demo of the application, click the following link: https://drive.google.com/file/d/1TmT39JTR42Gvh0JJFIar_8cGOAkPaJSn/view?usp=sharing.
 
 ## To Test
 
